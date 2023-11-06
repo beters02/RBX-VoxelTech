@@ -1,0 +1,31 @@
+{
+  "name": "RobloxTech",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "Core": {
+        "$path": "src/shared"
+      }
+    },
+
+    "ServerScriptService": {
+      "Core": {
+        "$path": "src/server"
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Core": {
+          "$path": "src/client/player"
+        }
+      },
+      "StarterCharacterScripts": {
+        "Core": {
+          "$path": "src/client/character"
+        }
+      }
+    }
+  }
+}
