@@ -1,4 +1,4 @@
 # VoxelTech
-Technological modded minecraft in the Roblox Game Engine.
+Technological modded Minecraft in the Roblox game engine.
 
 Created by @closet-raccoon and @beters02
