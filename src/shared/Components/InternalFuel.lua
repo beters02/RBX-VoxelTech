@@ -1,0 +1,3 @@
+local InternalPower = {}
+
+return InternalPower
