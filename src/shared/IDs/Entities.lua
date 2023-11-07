@@ -1,10 +1,10 @@
-local Container = require(script.Parent.Parent.Components.Container)
+local Framework = require(game:GetService("ReplicatedStorage"):WaitForChild("Framework"))
+local Types = Framework.Types
 
-export type Multiplier = number
-export type Offset = number
+local Container = require(Framework.Components.Container)
 
 export type Entity = {
-    processSpeed: Multiplier,
+    processSpeed: Types.Multiplier,
     canProcess: boolean,
     canCollide: boolean,
     fuelInputType: Fuel,
