@@ -25,6 +25,7 @@ local Entity
 local EntityPrivate
 local Component
 local System
+local Process = require(script:WaitForChild("Process"))
 
 EntityPrivate = {
     InitializeComponents = function(self: Shared.Entity)
@@ -36,6 +37,9 @@ EntityPrivate = {
 
 Entity = {
 
+    Name = "Entity",
+    Class = "Entity",
+    ID = 0,
     RBXTemplateObject = false,
     RBXWorldObject = false,
     Properties = {IsAlive = false, Health = 100, Drops = false} :: Shared.EntityProperties,
@@ -52,6 +56,10 @@ Entity = {
         EntityPrivate.InitializeComponents(self)
         EntityPrivate.InitializeSystems(self)
         self.new = false
+        self.Name = nonUniqueID
+
+        self.ID = #ECS._storedEntities[nonUniqueID] + 1
+        ECS._storedEntities[nonUniqueID][self.ID] = self
         return self
     end,
     
@@ -59,6 +67,11 @@ Entity = {
         self.RBXWorldObject = self.RBXTemplateObject:Clone()
         self.RBXWorldObject.Parent = workspace
         self.RBXWorldObject.CFrame = cframe
+        Process.init(self) -- Initialize Entity into Processing.
+    end,
+
+    remove = function(self)
+        Process.remove(self)
     end,
 
     AddComponent = function(self, component, data)
