@@ -1,3 +1,0 @@
-local InternalPower = {}
-
-return InternalPower

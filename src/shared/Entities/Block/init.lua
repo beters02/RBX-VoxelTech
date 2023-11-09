@@ -1,1 +1,0 @@
-export type Fuel = "Heat" | "Power" | nil
